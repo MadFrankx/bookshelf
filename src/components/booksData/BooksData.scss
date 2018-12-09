@@ -1,0 +1,15 @@
+.user {
+    display: flex;
+    flex-direction: row;
+    img.dataImage {
+        height: 50px;
+        width: 50px;
+        margin: 15px;
+    }
+    h1 {
+        font-family: 'Poly', serif;
+        color: white;
+        margin: 15px;
+        font-weight: 500;
+    }
+}

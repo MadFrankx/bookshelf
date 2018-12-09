@@ -1,0 +1,20 @@
+.dashboard {
+    height: 10vh;
+    width: 100vw;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    &::after {
+        content: "";
+        height: 12vh;
+        width: 100vw;
+        background: url(../../assets/books.jpg);
+        background-size: cover;
+        top: 0;
+        left: 0;
+        bottom: 0;
+        right: 0;
+        position: absolute;
+        z-index: -1; 
+    }
+}
