@@ -9,7 +9,9 @@ export default class MyBoard extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-            visible: false
+            visible: true,
+            books: [],
+            
         }
     }
 
@@ -19,23 +21,50 @@ export default class MyBoard extends React.Component {
         })
       }
 
+    handleAddBook = (title, author, index) => {
+        this.setState( prevState => {
+            return {
+                visible: !this.state.visible,
+                books: [
+                    ...prevState.books,
+                    {
+                        key: index,
+                        title: title,
+                        author: author,
+                    }
+                ],
+                available: this.props.available + 1
+            }
+        })
+        console.log(this.state);
+    }
+
     render() {
-        const popup = (this.state.visible ? <PopupAddBook /> : null);
-        return (
-            <div className= { styles.wrapper }>
-                <h1 className= { styles.board }>Your Books
-                    <img className= { styles.dataImage} onClick={() => this.popup()} src= { pencil } />
-                </h1>
-                { popup }
-                <YourBook />
-                <YourBook />
-                <YourBook />
-                <YourBook />
-                <YourBook />
-                <YourBook />
-                <YourBook />
-                <YourBook />
-            </div>
-        );
+        if (this.state.visible ||
+            (this.state.books.title === '') ||
+            (this.state.books.author === '')) {
+            return (
+                <div className= { styles.wrapper }>
+                    <h1 className= { styles.board }>Your Books
+                        <img className= { styles.dataImage} onClick={() => this.popup()} src= { pencil } />
+                    </h1>
+                    <PopupAddBook addBook= { this.handleAddBook }/>
+                </div>
+            );
+        } else {
+            return (
+                <div className= { styles.wrapper }>
+                    <h1 className= { styles.board }>Your Books
+                        <img className= { styles.dataImage} onClick={() => this.popup()} src= { pencil } />
+                    </h1>
+                    {this.state.books.map( (book) =>
+                        <YourBook 
+                            title= { book.title }
+                            author= { book.author }
+                        />
+                    )}
+                </div>
+            );
+        }
     }
 }

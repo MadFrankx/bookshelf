@@ -5,11 +5,20 @@ import BooksData from "../booksData/BooksData";
 
 
 export default class User extends React.Component {
+    constructor(props) {
+        super(props);
+    }
+
     render() {
         return (
                 <div className= { styles.dashboard }>
                     <UserData />
-                    <BooksData />
+                    <BooksData
+                        available= { this.props.available }
+                        lent= { this.props.lent }
+                        borrowed= { this.props.borrowed }
+                        owned= { this.props.owned }
+                     />
                 </div>
         );
     }

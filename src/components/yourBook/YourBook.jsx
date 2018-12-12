@@ -15,7 +15,7 @@ export default class YourBook extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-            visible: false
+            visible: false,
         }
     }
 
@@ -31,21 +31,19 @@ export default class YourBook extends React.Component {
             <div>
             <div className= { styles.wrapper }>
                 <div>
-                    <p><span>Title: </span>Harry Potter and the Philosophers Stone
+                    <p><span>Title: </span>{ this.props.title }
                         <img className= { styles.dataImage} src= { available } />
                         <img 
                             className= {classNames( styles.dataImage, styles.pencilImage )}
                             onClick={() => this.popup()} 
                             src= { pencil } />
                     </p>
-                    <p><span>Author: </span>J.K.Rowling</p>
+                    <p><span>Author: </span>{ this.props.author }</p>
                 </div>
                 <div className= { styles.stats }>
                     <p className= { styles.awaiting }>AWAITING</p>
                     <div className= { styles.stars }>
                         <img className= { styles.dataImage} src= { starBlue } />
-                        <img className= { styles.dataImage} src= { starYellow } />
-                        <img className= { styles.dataImage} src= { starPurple } />
                     </div>
                 </div>
             </div>

@@ -6,17 +6,21 @@ import owned from '../../assets/circleOwned.png';
 import styles from "./BooksData.scss";
 
 export default class BooksData extends React.Component {
+    constructor(props) {
+       super(props);
+    }
+
     render() {
         return (
             <div className= { styles.user }>
                 <img className= { styles.dataImage} src= { available } />
-                <h1>12</h1>
+                <h1> { this.props.available } </h1>
                 <img className= { styles.dataImage} src= { lent } />
-                <h1>12</h1>
+                <h1> { this.props.lent } </h1>
                 <img className= { styles.dataImage} src= { borrowed } />
-                <h1>34</h1>
+                <h1> { this.props.borrowed } </h1>
                 <img className= { styles.dataImage} src= { owned } />
-                <h1>34</h1>
+                <h1> { this.props.owned } </h1>
             </div>
         );
     }
