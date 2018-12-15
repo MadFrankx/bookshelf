@@ -6,14 +6,32 @@ import borrowed from '../../assets/circleBorrowed.png';
 import available from '../../assets/circleAvailable.png';
 
 export default class PopupEditStatus extends React.Component {
+    constructor(props) {
+        super(props);
+        this.state= {
+            status: "-",
+        }
+    }
+
+    getStatus = (event) => {
+        event.preventDefault();
+        this.props.changeStatus(event.target.value);
+        console.log(event.target.value);
+    }
+
     render() {
         return (
             <div className= { styles.wrapper }>
-                <h4>Change status:
-                <img className= { styles.dataImage} src= { available } />
-                <img className= { styles.dataImage} src= { lent } />
-                <img className= { styles.dataImage} src= { borrowed } />
-                </h4>
+                <h4>Change status:</h4>
+                <select
+                    value= {event.target.value}
+                    // defaultValue= {this.state.status}
+                    onChange= { this.getStatus } >
+                    <option value= "">-</option>
+                    <option value= "available">Available</option>
+                    <option value= "lent">Lent</option>
+                    <option value= "borrowed">Borrowed</option>
+                </select>
             </div>
         );
     }

@@ -8,6 +8,7 @@ import styles from "./BooksData.scss";
 export default class BooksData extends React.Component {
     constructor(props) {
        super(props);
+       this.state;
     }
 
     render() {

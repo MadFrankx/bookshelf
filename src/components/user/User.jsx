@@ -14,10 +14,7 @@ export default class User extends React.Component {
                 <div className= { styles.dashboard }>
                     <UserData />
                     <BooksData
-                        available= { this.props.available }
-                        lent= { this.props.lent }
-                        borrowed= { this.props.borrowed }
-                        owned= { this.props.owned }
+                        status= { this.props.status }
                      />
                 </div>
         );

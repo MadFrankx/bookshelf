@@ -1,6 +1,8 @@
 import React from "react";
+import styles from "./Dashboard.scss";
 import User from "../user/User";
-import Boards from "../boards/Boards";
+import MyBoard from "../myBoard/MyBoard";
+import FriendsBoard from "../friendsBoard/FriendsBoard";
 
 export default class Dashboard extends React.Component {
     constructor(props) {
@@ -13,17 +15,27 @@ export default class Dashboard extends React.Component {
         }
     }
 
+    handleAddBook = ( state) => {
+        this.setState({
+                state: state,
+                owned: this.state.owned + 1
+        })
+        console.log(this.state);
+    }
+
     render() {
         return (
             <div>
                 <User 
-                    available= { this.state.available }
-                    lent= { this.state.lent }
-                    borrowed= { this.state.borrowed }
-                    owned= { this.state.owned }
+                    status= { this.state.status }
                 />
                 { console.log(this.state)}
-                <Boards available= {this.state.available}/>
+                    <div className= { styles.wrapper }>
+                        <MyBoard handleUpdateState = { this.handleAddBook }
+                                onChange = { this.handleAddBook }        
+                        />
+                        <FriendsBoard />
+                    </div>
             </div>
         );
     }
