@@ -6,10 +6,6 @@ import owned from '../../assets/circleOwned.png';
 import styles from "./BooksData.scss";
 
 export default class BooksData extends React.Component {
-    constructor(props) {
-       super(props);
-       this.state;
-    }
 
     render() {
         return (
@@ -21,7 +17,7 @@ export default class BooksData extends React.Component {
                 <img className= { styles.dataImage} src= { borrowed } />
                 <h1> { this.props.borrowed } </h1>
                 <img className= { styles.dataImage} src= { owned } />
-                <h1> { this.props.owned } </h1>
+                <h1> { this.props.available + this.props.lent } </h1>
             </div>
         );
     }

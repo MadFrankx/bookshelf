@@ -12,7 +12,8 @@ export default class PopupAddBook extends React.Component {
     handleSubmit = (event) => {
        event.preventDefault();
         this.props.addBook(this.titleInput.current.value, 
-                            this.authorInput.current.value);
+                            this.authorInput.current.value,
+                            "available");
         event.currentTarget.reset();
     };
 

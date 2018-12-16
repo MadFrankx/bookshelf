@@ -9,26 +9,26 @@ export default class PopupEditQueue extends React.Component {
         }
     }
 
-    addToQueue = () => {
+    changeQueue = () => {
         this.setState({
-            added: true
+            added: !this.state.added
         });
-        this.props.handleAddToQueue(this.state.added);
-    }
-
-    removeFromQueue = () => {
-        this.setState({
-            added: false
-        });
-        this.props.handleRemoveFromQueue(this.state.added);
+        this.props.handleChangeQueue(this.state.added);
     }
 
     render() {
-        return (
-            <div className= { styles.wrapper }>
-                <button onClick= { this.addToQueue } className= { styles.add }>Add to awaiting</button>
-                <button onClick= { this.removeFromQueue } className= { styles.remove }>Remove from awaiting</button>
-            </div>
-        );
+        if (this.state.added == false) {
+            return (
+                <div className= { styles.wrapper }>
+                    <button onClick= { this.changeQueue } className= { styles.add }>Add to awaiting</button>
+                </div> 
+            );
+        } else if (this.state.added == true) {
+            return (
+                <div className= { styles.wrapper }>
+                    <button onClick= { this.changeQueue } className= { styles.remove }>Remove from awaiting</button>
+                </div>
+            );
+        }
     }
 }

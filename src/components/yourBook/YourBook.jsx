@@ -3,23 +3,27 @@ import React from "react";
 import styles from "./YourBook.scss";
 import PopupEditStatus from "../popupEditStatus/PopupEditStatus";
 
-import lent from '../../assets/circleLent.png';
-import borrowed from '../../assets/circleBorrowed.png';
-import available from '../../assets/circleAvailable.png';
 import pencil from '../../assets/pencil.png';
 import starBlue from '../../assets/starBlue.png';
 import starYellow from '../../assets/starYellow.png';
 import starPurple from '../../assets/starPurple.png';
+
+import availableSrc from '../../assets/circleAvailable.png';
+import lentSrc from '../../assets/circleLent.png';
+import borrowedSrc from '../../assets/circleBorrowed.png';
+
+const statusToImg = {
+    available: availableSrc,
+    lent: lentSrc,
+    borrowed: borrowedSrc
+};
 
 export default class YourBook extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
             visible: false,
-            status: '',
-            available: '../../assets/circleAvailable.png',
-            lent: '../../assets/circleLent.png',
-            borrowed: '../../assets/circleBorrowed.png',
+            status: this.props.status,
             img: ''
         }
     }
@@ -31,42 +35,35 @@ export default class YourBook extends React.Component {
       };
 
     handleChangeStatus = (status) => {
-        this.setState({
-            status: status
-        }, () => console.log(this.state));
-        if (status === 'available') {
-            this.setState({ img: available });
-        } else if (this.state.status === 'lent') {
-            this.setState({ img: lent });
-        } else if (this.state.status === 'borrowed') {
-            this.setState({ img: borrowed });
-        }
-    };
-
-    sendState = () => {
-        this.props.changeStatus(this.state.books);
+        this.setState({ status }, () => {
+            this.props.onStatusChanged(status);
+        });
     };
 
     render() {
-        console.log(this.state.img);
         if (this.state.visible) {
             return (
             <div>
                 <div className= { styles.wrapper }>
-                    <div>
-                        <p><span>Title: </span>{ this.props.title }
-                            <img className= { styles.dataImage} src= { this.state.img } />
+                    <div className= { styles.status }>
+                        <div>
+                            <img className= { styles.dataImage} src= { statusToImg[this.state.status] } />
+                        </div>
+                        <div>
                             <img 
                                 className= {classNames( styles.dataImage, styles.pencilImage )}
                                 onClick={() => this.popup()} 
                                 src= { pencil } />
-                        </p>
+                        </div>
+                    </div>
+                    <div className= { styles.bookInfo }>
+                        <p><span>Title: </span>{ this.props.title }</p>
                         <p><span>Author: </span>{ this.props.author }</p>
                     </div>
                     <div className= { styles.stats }>
                         <p className= { styles.awaiting }>AWAITING</p>
                         <div className= { styles.stars }>
-                            <img className= { styles.dataImage} src= { starBlue } />
+                            <p> Empty </p>
                         </div>
                     </div>
                 </div>
@@ -76,20 +73,21 @@ export default class YourBook extends React.Component {
         } else {
             return (
                 <div className= { styles.wrapper }>
-                    <div>
-                        <p><span>Title: </span>{ this.props.title }
-                            <img className= { styles.dataImage} src= { this.state.img } />
-                            <img 
-                                className= {classNames( styles.dataImage, styles.pencilImage )}
-                                onClick={() => this.popup()} 
-                                src= { pencil } />
-                        </p>
+                    <div className= { styles.status }>
+                        <img className= { styles.dataImage} src= { statusToImg[this.state.status] } />
+                        <img 
+                            className= {classNames( styles.dataImage, styles.pencilImage )}
+                            onClick={() => this.popup()} 
+                            src= { pencil } />
+                    </div>
+                    <div className= { styles.bookInfo }>
+                        <p><span>Title: </span>{ this.props.title }</p>
                         <p><span>Author: </span>{ this.props.author }</p>
                     </div>
                     <div className= { styles.stats }>
                         <p className= { styles.awaiting }>AWAITING</p>
                         <div className= { styles.stars }>
-                            <img className= { styles.dataImage} src= { starBlue } />
+                            <p> Empty </p>
                         </div>
                     </div>
                 </div>

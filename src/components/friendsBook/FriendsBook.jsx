@@ -27,53 +27,48 @@ export default class YourBook extends React.Component {
         })
       }
     
-    handleAdd = (added) => {
+    changeQueue = () => {
         this.setState({
-            added: added
-        });
-    }
-
-    handleRemove = (remove) => {
-        this.setState({
-            added: remove
+            added: !this.state.added
         });
     }
 
     render() {
         const popup = (this.state.visible ? <PopupEditQueue 
-                                                            handleRemoveFromQueue = { this.handleRemove }
-                                                            handleAddToQueue = { this.handleAdd }
+                                                            handleChangeQueue = { this.changeQueue }
                                                             /> : null);
         const starsDiv = (this.state.added ?
                         <div className= { styles.stars }>
-                            <img className= { styles.dataImage} src= { starBlue } />
-                            <img className= { styles.dataImage} src= { starYellow } />
+                            <img className= { styles.dataImage} src= { this.props.awaitingImg1 } />
+                            <img className= { styles.dataImage} src= { this.props.awaitingImg2 } />
                             <img className= { styles.dataImage} src= { starGreen } />
                         </div> :
                         <div className= { styles.stars }>
-                        <img className= { styles.dataImage} src= { starBlue } />
-                        <img className= { styles.dataImage} src= { starYellow } />
+                        <img className= { styles.dataImage} src= { this.props.awaitingImg1 } />
+                        <img className= { styles.dataImage} src= { this.props.awaitingImg2 } />
                     </div> 
             )
         return (
             <div>
                 <div className= { styles.wrapper }>
                     <div className= { styles.user }>
-                        <img className= { styles.dataImage} src= { starPurple } />
+                        <img className= { styles.dataImage} src= { this.props.imgSrc } />
                     </div>
-                    <div>
-                        <p><span>Title: </span>Harry Potter and the Philosophers Stone
-                            <img className= { styles.dataImage} src= { available } />
-                            <img 
-                                className= {classNames( styles.dataImage, styles.pencilImage )}
-                                onClick={() => this.popup()} 
-                                src= { pencil } />
-                        </p>
-                        <p><span>Author: </span>J.K.Rowling</p>
-                    </div>
-                    <div className= { styles.stats }>
-                        <p className= { styles.awaiting }>AWAITING</p>
-                        { starsDiv }
+                    <div className= { styles.innerWrapper }>
+                        <div>
+                            <p><span>Title: </span> { this.props.title }
+                                <img className= { styles.dataImage} src= { this.props.statusImg } />
+                                <img 
+                                    className= {classNames( styles.dataImage, styles.pencilImage )}
+                                    onClick={() => this.popup()} 
+                                    src= { pencil } />
+                            </p>
+                            <p><span>Author: </span>{ this.props.author }</p>
+                        </div>
+                        <div className= { styles.stats }>
+                            <p className= { styles.awaiting }>AWAITING</p>
+                            { starsDiv }
+                        </div>
                     </div>
                 </div>
                 {popup}

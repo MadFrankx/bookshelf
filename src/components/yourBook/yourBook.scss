@@ -2,7 +2,15 @@
     margin: 5px;
     display: flex;
     flex-direction: row;
-    justify-content: space-between; 
+    justify-content: space-evenly; 
+}
+
+.bookInfo {
+    flex-grow: 1;
+}
+
+span {
+    font-weight: 900;
 }
 
 img.dataImage {
@@ -19,6 +27,14 @@ img.pencilImage {
 
 .stats {
     padding: 2%;
+    padding-right: 30px;
+}
+
+.status {
+    margin: 5px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly; 
 }
 
 .awaiting {

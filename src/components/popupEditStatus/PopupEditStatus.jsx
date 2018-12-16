@@ -8,9 +8,6 @@ import available from '../../assets/circleAvailable.png';
 export default class PopupEditStatus extends React.Component {
     constructor(props) {
         super(props);
-        this.state= {
-            status: "-",
-        }
     }
 
     getStatus = (event) => {
@@ -25,7 +22,6 @@ export default class PopupEditStatus extends React.Component {
                 <h4>Change status:</h4>
                 <select
                     value= {event.target.value}
-                    // defaultValue= {this.state.status}
                     onChange= { this.getStatus } >
                     <option value= "">-</option>
                     <option value= "available">Available</option>

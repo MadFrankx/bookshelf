@@ -8,7 +8,7 @@ img.dataImage {
     display: flex;
     flex-direction: row;
     justify-content: center;
-    text-align: center;
+    align-items: center;
 }
 
 button {
@@ -24,7 +24,7 @@ button {
     }
 }
 
-.inputImg {
-    height: 25px;
-    width: 25px;
+select {
+    height: 5vh;
+    border: none;
 }

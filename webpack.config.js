@@ -7,6 +7,7 @@ module.exports = {
   resolve: {
     extensions: [".js", ".jsx"]
   },
+  devtool: "eval-source-map",
   devServer: {
     contentBase: __dirname + "/docs"
   },

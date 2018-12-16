@@ -3,6 +3,7 @@ import styles from "./Dashboard.scss";
 import User from "../user/User";
 import MyBoard from "../myBoard/MyBoard";
 import FriendsBoard from "../friendsBoard/FriendsBoard";
+import Footer from "../footer/Footer";
 
 export default class Dashboard extends React.Component {
     constructor(props) {
@@ -10,16 +11,22 @@ export default class Dashboard extends React.Component {
         this.state= {
             available: 0,
             lent: 0,
-            borrowed: 0,
-            owned: 0
+            borrowed: 0
         }
     }
 
-    handleAddBook = ( state) => {
-        this.setState({
-                state: state,
-                owned: this.state.owned + 1
-        })
+    handleBooksUpdated = (books) => {
+        const booksStatus = {
+            available: 0,
+            lent: 0,
+            borrowed: 0
+        };
+
+        books.forEach(book => {
+            booksStatus[book.status] ++;
+        });
+
+        this.setState(booksStatus);
         console.log(this.state);
     }
 
@@ -27,15 +34,16 @@ export default class Dashboard extends React.Component {
         return (
             <div>
                 <User 
-                    status= { this.state.status }
+                    { ...this.state }
                 />
-                { console.log(this.state)}
-                    <div className= { styles.wrapper }>
-                        <MyBoard handleUpdateState = { this.handleAddBook }
-                                onChange = { this.handleAddBook }        
-                        />
-                        <FriendsBoard />
-                    </div>
+                <div className= { styles.wrapper }>
+                    <MyBoard 
+                        onBooksUpdated = { this.handleBooksUpdated }      
+                    />
+                    <FriendsBoard />
+                    
+                </div>
+                <Footer />
             </div>
         );
     }

@@ -11,10 +11,10 @@ export default class User extends React.Component {
 
     render() {
         return (
-                <div className= { styles.dashboard }>
+                <div className= { styles.header }>
                     <UserData />
                     <BooksData
-                        status= { this.props.status }
+                        { ...this.props }
                      />
                 </div>
         );

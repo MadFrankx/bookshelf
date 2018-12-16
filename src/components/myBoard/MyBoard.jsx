@@ -13,58 +13,53 @@ export default class MyBoard extends React.Component {
         super(props);
         this.state = {
             visible: true,
-            books: [],
-            available: 0,
-            lent: 0,
-            borrowed: 0
+            books: []
         }
     }
 
-    popup() {
+    shouldComponentUpdate = (nextProps, nextState) => {
+        return JSON.stringify(nextState) !== JSON.stringify(this.state);
+    }
+
+    componentDidUpdate = () => {
+        this.props.onBooksUpdated(this.state.books);
+    }
+
+    popup = () => {
         this.setState({
           visible: !this.state.visible
         });
       }
 
-    handleAddBook = (title, author, status, index) => {
+    handleAddBook = (title, author, status) => {
         this.setState( prevState => {
             return {
-                visible: !this.state.visible,
+                visible: !prevState.visible,
                 books: [
                     ...prevState.books,
                     {
-                        key: index,
                         title: title,
                         author: author,
-                        status: status
+                        status: status,
+                        id: Date.now()
                     }
-                ],
-                available: this.state.available + 1
+                ]
             }
-        })
-
+        });
         console.log(this.state.books);
     }
 
-    handleChangeStatus = (books) => {
-        console.log("Change");
-        books.forEach = (book) => {
-            if (book.status == 'available') {
-                this.setState({
-                    available: this.state.available + 1
-                });
-            } else if (book.status == 'lent') {
-                this.setState({
-                    lent: this.state.lent + 1
-                });
-            } else if (book.status == 'borrowed') {
-                this.setState({
-                    borrowed: this.state.borrowed + 1
-                });
-        }
+    handleBookStatusChange = (idBook, newStatus) => {
+        this.setState( prevState => {
+            const booksCopy = JSON.parse(JSON.stringify(prevState.books));
+            const bookIndex = booksCopy.findIndex(book => book.id === idBook);
+            booksCopy[bookIndex].status = newStatus;
+            return {
+                books: booksCopy
+            };
+        });
     }
-    console.log(this.state);
-}
+    
 
     render() {
         if (this.state.visible ||
@@ -86,10 +81,11 @@ export default class MyBoard extends React.Component {
                     </h1>
                     {this.state.books.map( (book, index) =>
                         <YourBook 
-                            changeStatus= { this.handleChangeStatus }
+                            onStatusChanged= { (bookStatus) => this.handleBookStatusChange(book.id, bookStatus) }
                             title= { book.title }
                             author= { book.author }
                             key= { index }
+                            status= { book.status }
                         />
                     )}
                 </div>
