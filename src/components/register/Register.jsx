@@ -66,7 +66,7 @@ export default class Register extends React.Component {
                 <input className= { styles.sign } onClick= { this.redirect } type="submit" value="Sign in" />
             </div>
         </form>
-        <a href= "#">&lt; Go back</a>
+        <a className = { styles.back } href= "#">&lt; Go back</a>
       </div>
       );
     }

@@ -1,8 +1,5 @@
 import React from "react";
 import styles from "./Main.scss";
-import {
-  Link
-} from 'react-router-dom';
 
 export default class Main extends React.Component {
 
