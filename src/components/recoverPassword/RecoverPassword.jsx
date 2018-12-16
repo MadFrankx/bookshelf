@@ -5,7 +5,8 @@ export default class RecoverPassword extends React.Component {
 
   nameInput = React.createRef();
 
-  redirect = () => {
+  redirect = (event) => {
+    event.preventDefault();
     let path = `/dashboard`;
     this.props.history.push(path);
   }
