@@ -11,7 +11,8 @@ export default class Dashboard extends React.Component {
         this.state= {
             available: 0,
             lent: 0,
-            borrowed: 0
+            borrowed: 0,
+            username: this.props.match.params.username
         }
     }
 
@@ -19,7 +20,7 @@ export default class Dashboard extends React.Component {
         const booksStatus = {
             available: 0,
             lent: 0,
-            borrowed: 0
+            borrowed: 0,
         };
 
         books.forEach(book => {
@@ -41,7 +42,6 @@ export default class Dashboard extends React.Component {
                         onBooksUpdated = { this.handleBooksUpdated }      
                     />
                     <FriendsBoard />
-                    
                 </div>
                 <Footer />
             </div>

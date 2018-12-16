@@ -4,11 +4,24 @@ import styles from "./Main.scss";
 export default class Main extends React.Component {
 
   nameInput = React.createRef();
+  passwordInput = React.createRef();
 
-  redirect = () => {
-    let path = `/dashboard`;
-    this.props.history.push(path);
-  }
+  redirectDashboard = (event) => {
+    if ( this.nameInput.current.value == '' ||
+        this.passwordInput.current.value == ''  ) {
+      event.preventDefault();
+    } else {
+      this.props.history.push({
+        pathname: '/dashboard/' + this.nameInput.current.value
+      });
+    } 
+  };
+
+  redirectRegister = () => {
+    this.props.history.push({
+      pathname: '/register'
+    });
+  };
 
   render() {
     return (  
@@ -17,19 +30,19 @@ export default class Main extends React.Component {
         <form>
           <div>
             <label>
-              <input className= { styles.data } ref= { this.nameInput } type="text" name="name" placeholder="Name"/>
+              <input className= { styles.data } ref= { this.nameInput } type="text" name="name" placeholder="Username"/>
             </label>
           </div>
           <div>
             <label>
-              <input className= { styles.data } type="password" name="password" placeholder="Password"/>
+              <input className= { styles.data } ref= { this.passwordInput } type="password" name="password" placeholder="Password"/>
             </label>
           </div>
           <div>
-            <input className= { styles.login } onClick= { this.redirect }type="submit" value="Log in" />  
+              <input className= { styles.login } onClick= { this.redirectDashboard } type="submit" value="Log in" />
           </div>
           <div>
-            <input className= { styles.sign } type="submit" value="Sign in" />
+            <input className= { styles.sign } onClick= { this.redirectRegister } type="submit" value="Sign in" />
           </div>
         </form>
       </div>

@@ -52,23 +52,26 @@ export default class YourBook extends React.Component {
             <div>
                 <div className= { styles.wrapper }>
                     <div className= { styles.user }>
-                        <img className= { styles.dataImage} src= { this.props.imgSrc } />
+                        <img className= { styles.dataImageStar} src= { this.props.imgSrc } title= { this.props.username }/>
+                    </div>
+                    <div className= { styles.user }>
+                        <img className= { styles.dataImage} src= { this.props.statusImg } />
                     </div>
                     <div className= { styles.innerWrapper }>
                         <div>
-                            <p><span>Title: </span> { this.props.title }
-                                <img className= { styles.dataImage} src= { this.props.statusImg } />
-                                <img 
-                                    className= {classNames( styles.dataImage, styles.pencilImage )}
-                                    onClick={() => this.popup()} 
-                                    src= { pencil } />
-                            </p>
+                            <p><span>Title: </span> { this.props.title }</p>
                             <p><span>Author: </span>{ this.props.author }</p>
                         </div>
                         <div className= { styles.stats }>
                             <p className= { styles.awaiting }>AWAITING</p>
                             { starsDiv }
                         </div>
+                    </div>
+                    <div className= { styles.user }>
+                    <img 
+                        className= {classNames( styles.dataImage, styles.pencilImage )}
+                        onClick={() => this.popup()} 
+                        src= { pencil } />
                     </div>
                 </div>
                 {popup}

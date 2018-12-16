@@ -19,7 +19,8 @@ export default class FriendsBoards extends React.Component {
                     imgSrc: starBlue,
                     statusImg: lent,
                     awaitingImg1: starYellow,
-                    awaitingImg2: starPurple
+                    awaitingImg2: starPurple,
+                    username: "JohnyBravo"
                 },
                 {
                     title: '1984',
@@ -27,7 +28,8 @@ export default class FriendsBoards extends React.Component {
                     imgSrc: starPurple,
                     statusImg: available,
                     awaitingImg1: starYellow,
-                    awaitingImg2: starBlue
+                    awaitingImg2: starBlue,
+                    username: "Jack McDonald"
                 },
                 {
                     title: 'To Kill a Mockingbird',
@@ -35,7 +37,8 @@ export default class FriendsBoards extends React.Component {
                     imgSrc: starPurple,
                     statusImg: lent,
                     awaitingImg1: starYellow,
-                    awaitingImg2: starBlue
+                    awaitingImg2: starBlue,
+                    username: "Jack McDonald"
                 },
                 {
                     title: 'The God of Small Things',
@@ -43,7 +46,8 @@ export default class FriendsBoards extends React.Component {
                     imgSrc: starYellow,
                     statusImg: borrowed,
                     awaitingImg1: starBlue,
-                    awaitingImg2: starPurple
+                    awaitingImg2: starPurple,
+                    username: "Amy Griffin"
                 },
                 {
                     title: 'Wolf Hall',
@@ -51,7 +55,8 @@ export default class FriendsBoards extends React.Component {
                     imgSrc: starBlue,
                     statusImg: available,
                     awaitingImg1: starYellow,
-                    awaitingImg2: starPurple
+                    awaitingImg2: starPurple,
+                    username: "JohnyBravo"
                 },
                 {
                     title: 'Frankenstein',
@@ -59,7 +64,8 @@ export default class FriendsBoards extends React.Component {
                     imgSrc: starPurple,
                     statusImg: available,
                     awaitingImg1: starYellow,
-                    awaitingImg2: starBlue
+                    awaitingImg2: starBlue,
+                    username: "Jack McDonald"
                 },
                 {
                     title: 'Lord of the Flies',
@@ -67,7 +73,8 @@ export default class FriendsBoards extends React.Component {
                     imgSrc: starBlue,
                     statusImg: borrowed,
                     awaitingImg1: starYellow,
-                    awaitingImg2: starPurple
+                    awaitingImg2: starPurple,
+                    username: "JohnyBravo"
                 },
                 {
                     title: 'Midnight’s Children',
@@ -75,7 +82,8 @@ export default class FriendsBoards extends React.Component {
                     imgSrc: starBlue,
                     statusImg: borrowed,
                     awaitingImg1: starYellow,
-                    awaitingImg2: starPurple
+                    awaitingImg2: starPurple,
+                    username: "JohnyBravo"
                 },
                 {
                     title: 'Jane Eyre',
@@ -83,7 +91,8 @@ export default class FriendsBoards extends React.Component {
                     imgSrc: starYellow,
                     statusImg: lent,
                     awaitingImg1: starBlue,
-                    awaitingImg2: starPurple
+                    awaitingImg2: starPurple,
+                    username: "Amy Griffin"
                 },
             ]
         }
@@ -100,6 +109,7 @@ export default class FriendsBoards extends React.Component {
                             awaitingImg2= { book.awaitingImg2 }
                             title= { book.title }
                             author= { book.author }
+                            username= { book.username }
                             key= { index }
                         />
                     )}

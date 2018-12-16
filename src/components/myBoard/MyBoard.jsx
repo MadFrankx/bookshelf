@@ -3,10 +3,6 @@ import styles from "./MyBoard.scss";
 import YourBook from "../yourBook/YourBook";
 import PopupAddBook from "../popupAddBook/PopupAddBook";
 import pencil from '../../assets/pencil.png';
-import lent from '../../assets/circleLent.png';
-import borrowed from '../../assets/circleBorrowed.png';
-import available from '../../assets/circleAvailable.png';
-
 
 export default class MyBoard extends React.Component {
     constructor(props) {

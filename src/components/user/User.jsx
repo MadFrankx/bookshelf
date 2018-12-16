@@ -12,7 +12,9 @@ export default class User extends React.Component {
     render() {
         return (
                 <div className= { styles.header }>
-                    <UserData />
+                    <UserData 
+                        {...this.props}
+                    />
                     <BooksData
                         { ...this.props }
                      />

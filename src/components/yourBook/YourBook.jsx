@@ -46,15 +46,7 @@ export default class YourBook extends React.Component {
             <div>
                 <div className= { styles.wrapper }>
                     <div className= { styles.status }>
-                        <div>
                             <img className= { styles.dataImage} src= { statusToImg[this.state.status] } />
-                        </div>
-                        <div>
-                            <img 
-                                className= {classNames( styles.dataImage, styles.pencilImage )}
-                                onClick={() => this.popup()} 
-                                src= { pencil } />
-                        </div>
                     </div>
                     <div className= { styles.bookInfo }>
                         <p><span>Title: </span>{ this.props.title }</p>
@@ -66,7 +58,14 @@ export default class YourBook extends React.Component {
                             <p> Empty </p>
                         </div>
                     </div>
+                    <div className= { styles.status }>
+                    <img 
+                        className= {classNames( styles.dataImage, styles.pencilImage )}
+                        onClick={() => this.popup()} 
+                        src= { pencil } />
+                    </div>
                 </div>
+               
             <PopupEditStatus changeStatus= { this.handleChangeStatus }/>
             </div>
             );
@@ -75,10 +74,6 @@ export default class YourBook extends React.Component {
                 <div className= { styles.wrapper }>
                     <div className= { styles.status }>
                         <img className= { styles.dataImage} src= { statusToImg[this.state.status] } />
-                        <img 
-                            className= {classNames( styles.dataImage, styles.pencilImage )}
-                            onClick={() => this.popup()} 
-                            src= { pencil } />
                     </div>
                     <div className= { styles.bookInfo }>
                         <p><span>Title: </span>{ this.props.title }</p>
@@ -89,6 +84,12 @@ export default class YourBook extends React.Component {
                         <div className= { styles.stars }>
                             <p> Empty </p>
                         </div>
+                    </div>
+                    <div className= { styles.status }>
+                        <img 
+                            className= {classNames( styles.dataImage, styles.pencilImage )}
+                            onClick={() => this.popup()} 
+                            src= { pencil } />
                     </div>
                 </div>
             );
