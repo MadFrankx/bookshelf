@@ -1,3 +1,4 @@
+var ImageminPlugin = require('imagemin-webpack-plugin').default
 module.exports = {
   entry: "./src/index.js",
   output: {
@@ -11,6 +12,13 @@ module.exports = {
   devServer: {
     contentBase: __dirname + "/docs"
   },
+  plugins: [
+    new ImageminPlugin({
+      pngquant: {
+        quality: '30'
+      }
+    })
+  ],
   module: {
     rules: [
       {

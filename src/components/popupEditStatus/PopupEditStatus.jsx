@@ -1,10 +1,6 @@
 import React from "react";
 import styles from "./PopupEditStatus.scss";
 
-import lent from '../../assets/circleLent.png';
-import borrowed from '../../assets/circleBorrowed.png';
-import available from '../../assets/circleAvailable.png';
-
 export default class PopupEditStatus extends React.Component {
     constructor(props) {
         super(props);

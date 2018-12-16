@@ -2,12 +2,7 @@ import classNames from 'classnames';
 import React from "react";
 import styles from "./YourBook.scss";
 import PopupEditStatus from "../popupEditStatus/PopupEditStatus";
-
 import pencil from '../../assets/pencil.png';
-import starBlue from '../../assets/starBlue.png';
-import starYellow from '../../assets/starYellow.png';
-import starPurple from '../../assets/starPurple.png';
-
 import availableSrc from '../../assets/circleAvailable.png';
 import lentSrc from '../../assets/circleLent.png';
 import borrowedSrc from '../../assets/circleBorrowed.png';

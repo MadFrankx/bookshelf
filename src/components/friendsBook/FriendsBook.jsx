@@ -2,15 +2,8 @@ import classNames from 'classnames';
 import React from "react";
 import styles from "./FriendsBook.scss";
 import PopupEditQueue from "../popupEditQueue/PopupEditQueue";
-
-import lent from '../../assets/circleLent.png';
-import borrowed from '../../assets/circleBorrowed.png';
-import available from '../../assets/circleAvailable.png';
 import pencil from '../../assets/pencil.png';
 import starGreen from '../../assets/starGreen.png';
-import starBlue from '../../assets/starBlue.png';
-import starYellow from '../../assets/starYellow.png';
-import starPurple from '../../assets/starPurple.png';
 
 export default class YourBook extends React.Component {
     constructor(props) {
