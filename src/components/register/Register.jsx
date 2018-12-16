@@ -1,14 +1,18 @@
 import React from "react";
 import styles from "./Register.scss";
 
-export default class Main extends React.Component {
+export default class Register extends React.Component {
 
   nameInput = React.createRef();
 
   redirect = () => {
-    this.props.history.push({
-      pathname: '/dashboard'
-    });
+    if ( this.nameInput.current.value == '') {
+      event.preventDefault();
+    } else {
+      this.props.history.push({
+        pathname: '/dashboard/' + this.nameInput.current.value
+      });
+    } 
   }
 
   render() {

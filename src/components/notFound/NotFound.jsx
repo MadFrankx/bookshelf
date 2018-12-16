@@ -1,7 +1,7 @@
 import React from "react";
 import styles from "./NotFound.scss";
 
-export default class Main extends React.Component {
+export default class NotFound extends React.Component {
 
   nameInput = React.createRef();
 

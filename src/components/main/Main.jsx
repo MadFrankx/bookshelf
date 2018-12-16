@@ -1,5 +1,8 @@
 import React from "react";
 import styles from "./Main.scss";
+import {
+  Link
+} from 'react-router-dom';
 
 export default class Main extends React.Component {
 
@@ -45,6 +48,7 @@ export default class Main extends React.Component {
             <input className= { styles.sign } onClick= { this.redirectRegister } type="submit" value="Sign in" />
           </div>
         </form>
+        <Link to="/recover">I forgot my password</Link>
       </div>
       );
     }

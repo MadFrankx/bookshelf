@@ -57,20 +57,20 @@
     &.sign {
       border: solid 1px #2581A9;
       background-color: white;
-      font-weight: 700;
+      font-weight: 400;
       font-size: 20px;
       height: 7vh;
       width: 14vw;
       &:hover {
-        font-weight: 400;
+        font-weight: 700;
       }
     }
   }
 
 a {
-    font-weight: 600;
+    font-weight: 400;
     font-size: 1.2em;
     &:hover {
-        font-weight: 400;
+        font-weight: 600;
     }
 }

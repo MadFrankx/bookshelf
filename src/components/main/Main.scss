@@ -61,23 +61,23 @@
     &.login {
       border: solid 1px #5FA925;
       background-color: white;
-      font-weight: 700;
+      font-weight: 400;
       font-size: 20px;
       height: 7vh;
       width: 15vw;
       &:hover {
-        font-weight: 400;
+        font-weight: 700;
       }
     }
     &.sign {
       border: solid 1px #2581A9;
       background-color: white;
-      font-weight: 700;
+      font-weight: 400;
       font-size: 20px;
       height: 7vh;
       width: 15vw;
       &:hover {
-        font-weight: 400;
+        font-weight: 700;
       }
     }
   }
