@@ -8,7 +8,6 @@ import Main from "../main/Main";
 import Dashboard from "../dashboard/Dashboard";
 import NotFound from "../notFound/NotFound";
 import Register from "../register/Register";
-import RecoverPassword from "../recoverPassword/RecoverPassword";
 
 export default class App extends React.Component {
 
@@ -19,7 +18,6 @@ export default class App extends React.Component {
           <Route exact path='/' component={Main } />
           <Route path='/dashboard/:username' component={Dashboard} />
           <Route path='/register' component={Register} />
-          <Route path='/recover' component={RecoverPassword} />
           <Route component={NotFound} />
         </Switch>
       </HashRouter>

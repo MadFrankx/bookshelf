@@ -48,7 +48,6 @@ export default class Main extends React.Component {
             <input className= { styles.sign } onClick= { this.redirectRegister } type="submit" value="Sign in" />
           </div>
         </form>
-        <Link to="/recover">I forgot my password</Link>
       </div>
       );
     }
